@@ -1,0 +1,59 @@
+.hero {
+    position: relative;
+    height: 85vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) saturate(1.2);
+    z-index: 0;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(166, 44, 43, 0.3);
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    color: rgb(255, 215, 0);
+}
+
+.hero-content h2 {
+    font-size: 1.5em;
+    margin: 10px 0 20px;
+    color: rgb(255, 249, 80);
+}
+
+.btn {
+    background: rgb(255, 215, 0);
+    color: rgb(51, 51, 51);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover{
+    background: rgb(255, 179, 71)
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
