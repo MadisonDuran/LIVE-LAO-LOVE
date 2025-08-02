@@ -7,6 +7,7 @@
     align-items: center;
     color: white;
     text-align: center;
+    background: black;
 }
 
 .hero-video {
@@ -28,15 +29,23 @@
     z-index: 1;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    padding: 20px;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
 .hero-content h1 {
     font-size: 3em;
-    color: rgb(255, 215, 0);
+    color: rgb(255, 215, 0)
 }
 
 .hero-content h2 {
     font-size: 1.5em;
     margin: 10px 0 20px;
-    color: rgb(255, 249, 80);
+    color: rgb(255, 249, 240)
 }
 
 .btn {
@@ -49,11 +58,11 @@
     transition: background 0.3s;
 }
 
-.btn:hover{
-    background: rgb(255, 179, 71)
+.btn:hover {
+    background: rgb(255, 179, 71);
 }
 
 @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
+    100% {opacity: 1; transform: translateY(0); }
 }
