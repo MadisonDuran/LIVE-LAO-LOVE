@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <title>Live Lao Love - Products</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Header -->
+         <header>
+            <h1>Our Products</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+         </header>
+         <!-- Pattern Divider Below Header -->
+          <div class="pattern-divider"></div>
+          <!-- Filter Buttons -->
+          <section class="filters">
+            <button onclick="filterProducts('All')">All</button>
+            <button onclick="filterProducts('Food')">Food</button>
+            <button onclick="filterProducts('Clothing')">Clothing</button>
+            <button onclick="filterProducts('Handicrafts')">Handicrafts</button>
+            <button onclick="filterProducts('Home & Decor')">Home & Decor</button>
+            <button onclick="filterProducts('Modern Merchandise')">Modern Merchandise</button>
+          </section>
+          <!-- Product Grid -->
+           <section id="product-list">
+            <!-- Products will load here dynamically with JS -->
+           </section>
+           <!-- Footer -->
+            <footer>
+                <div class="pattern-bar"></div>
+                <p>Sabaidee - Welcome to Lao Culture</p>
+                <p>© 2025 Live Lao Love | Embrace Lao Heritage</p>
+            </footer>
+            <script src="script.js"></script>
+    </body>
+</html>
