@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - Live Lao Love</title>
+        <link rel="stylesheet" href="../style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+          <h1>Contact Live Lao Love</h1>
+          <nav>
+            <a href="contact.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="index.html">Contact</a>
+            </nav>
+        </header>
+        <!-- Pattern Divider -->
+        <div class="pattern-divider"></div>
+        <!-- Contact Section -->
+        <section class="contact-form">
+            <h2>We'd Love to Hear From You!</h2>
+            <!-- Form Section -->
+            <form id="contact-form" novalidate>
+                <!-- First Name -->
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
+                <div class="error" id="first-name-error"></div>
+
+                <!-- Last Name -->
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
+                <div class="error" id="last-name-error"></div>
+
+                <!-- Email -->
+                <label for="user-email">Email:</label>
+                <input type="email" id="user-email" name="user-email" required>
+                <div class="error" id="user-email-error"></div>
+
+                <!-- Message -->
+                <label for="user-message">Message:</label>
+                <textarea id="user-message" name="user-message" rows="5" required></textarea>
+                <div class="error" id="user-message-error"></div>
+
+                <!-- Country -->
+                <label for="user-country">Country:</label>
+                <input type="text" id="user-country" name="user-country" required>
+                <div class="error" id="user-country-error"></div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            </section>
+        <!-- Footer -->
+        <footer>
+            <div class="pattern-bar"></div>
+            <p>Sabaidee - Welcome to Lao Culture</p>
+            <p>© 2025 Live Lao Love | Embrace Lao Heritage</p>
+        </footer>
+        <!-- JavaScript for Form Validation -->
+        <script src="script.js"></script>
+    </body>
+</html>
