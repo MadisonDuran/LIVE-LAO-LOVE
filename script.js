@@ -1,7 +1,13 @@
+'use strict'
+
 let products = [];
 
+const inHtmlFolder = decodeURIComponent(window.location.pathname).includes('HTML files');
+location.pathname = inHtmlFolder ? location.pathname.replace('HTML files/', '') : location.pathname;
+const BASE = inHtmlFolder ? '../' : './';
+
 // Fetch products from JSON
-fetch('products.json')
+fetch(`${BASE}products.json`)
   .then(res => res.json())
   .then(data => {
     products = data;
