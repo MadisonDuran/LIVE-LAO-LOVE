@@ -2,8 +2,8 @@
 
 let products = [];
 
-const inHtmlFolder = decodeURIComponent(window.location.pathname).includes('HTML files');
-location.pathname = inHtmlFolder ? location.pathname.replace('HTML files/', '') : location.pathname;
+const inHtmlFolder = decodeURIComponent(location.pathname).includes('HTML files');
+location.pathname.includes('/HTML%20files/')
 const BASE = inHtmlFolder ? '../' : './';
 
 // Fetch products from JSON
@@ -18,11 +18,12 @@ fetch(`${BASE}products.json`)
   // Display products dynamically 
   function displayProducts(productList) {
     const container = document.getElementById('product-list');
+    if (!container) return;
     container.innerHTML = "";
     productList.forEach(p => {
         container.innerHTML += `
         <div class="product-card">
-          <img src="${p.image}" alt="${p.name}">
+          <img src="${BASE}/Images/${p.image}" alt="${p.name}">
           <h3>${p.name}</h3>
           <p>${p.description}</p>
           <strong>$${p.price}</strong>
