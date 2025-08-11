@@ -166,39 +166,45 @@ nav a {
     text-align: center; /* Centers text horizontally */
 }
 
-/* Products Page */
+/* PRODUCTS PAGE */
+/* This section contains buttons to filter products by category */
 .filters {
-    text-align: center;
-    background: #FFD700;
-    padding: 15px;
-    border-bottom: 2px solid rgb(166, 44, 43);
+    text-align: center; /* Centers all filter buttons horizontally */
+    background: #FFD700; /* Bright gold background for visibility */
+    padding: 15px; /* Space around the content */
+    border-bottom: 2px solid rgb(166, 44, 43); /* Red border separating from content below */
 }
 
 .filters button {
-    background: rgb(166, 44, 43);
-    color: white;
-    border: none;
-    margin: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s ease;
+    background: rgb(166, 44, 43); /* Deep red background */
+    color: white; /* White text for contrast */
+    border: none; /* Removes default button border */
+    margin: 5px; /* Space between buttons */
+    padding: 10px 15px; /* Comfortable clickable size */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background 0.3s ease; /* Smooth background color change on hover */
 }
 
+/* Hover effect for filter buttons */
 .filters button:hover {
-    background: rgb(139, 28, 27);
+    background: rgb(139, 28, 27); /* Darker red when hovered */
 }
 
-/* Product Grid */
+
+/* PRODUCT LIST */
 #product-list {
-    display: grid;
+    display: grid; /* Enables CSS grid layout */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 80px;
-    padding: 40px 5%;
-    justify-content: center;
+    /* Creates a responsive grid:
+       - Each card is at least 250px wide
+       - Automatically fills available space */
+    gap: 30px; /* Space between cards */
+    max-width: 1200px; /* Prevents grid from stretching too wide */
+    margin: 0 auto 80px; /* Centers grid and adds space at the bottom */
+    padding: 40px 5%; /* Space inside the grid container */
+    justify-content: center; /* Centers grid items if extra space exists */
 }
 
 /* Products Cards */
