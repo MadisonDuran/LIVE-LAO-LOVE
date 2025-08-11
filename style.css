@@ -207,46 +207,32 @@ nav a {
     justify-content: center; /* Centers grid items if extra space exists */
 }
 
-/* Products Cards */
-.product-card {
-    background: white;
-    max-width: 250px;
-    width: 90%;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card img {
-   max-width: 100%;
-   height: auto;
-   margin: 0 auto 10px;
-   display: block;
-}
-
+/* PRODUCTS TITLES */
 .product-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2em;
-    margin: 10px 0;
-    color: rgb(166, 44, 43);
+    font-family: 'Playfair Display', serif; /* Elegant font for titles */
+    font-size: 1.2em; /* Slightly larger text size */
+    margin: 10px 0; /* Space above and below the title */
+    color: rgb(166, 44, 43); /* Deep red color matching brand theme */
 }
 
+/* PRODUCT DESCRIPTION */
+/* Small text below the title */
 .product-card p {
-    font-size: 0.9em;
-    color: rgb(85, 85, 85);
-    margin-bottom: 10px;
+    font-size: 0.9em; /* Smaller text size */
+    color: rgb(85, 85, 85); /* Medium gray for less emphasis */
+    margin-bottom: 10px; /* Space below description */
 }
 
+/* PRODUCT PRICE */
+/* Styled to be noticeable but not overpowering */
 .product-card strong {
-    font-size: 1.1em;
-    color: rgb(51, 51, 51);
+    font-size: 1.1em; /* Slightly larger text size */
+    color: rgb(51, 51, 51); /* Dark gray for readability */
 }
 
 .product-card:hover {
-    transform: scale(0.95);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 
 }
 
 /* Contact Page */
