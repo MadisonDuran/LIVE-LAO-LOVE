@@ -230,36 +230,41 @@ nav a {
     color: rgb(51, 51, 51); /* Dark gray for readability */
 }
 
+/* PRODUCT CARD HOVER EFFECT */
+/* Makes the project card shrink slightly when hovered */
 .product-card:hover {
-    transform: scale(0.95); 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 
+    transform: scale(0.95); /* Slightly reduces size for click-like effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow on hover */
 }
 
-/* Contact Page */
+/* CONTACT PAGE - SECTION CONTAINER */
+/* Styles the entire contact form section */
 section.contact-form {
-    padding: 2rem 1rem;
-    display: grid;
-    place-items: center;
+    padding: 2rem 1rem; /* Space inside the section (top/bottom, left/right) */
+    display: grid; /* Uses grid to center the form */
+    place-items: center; /* Centers the form both vertically and horizontally */
 }
 
-/* Card style wrapper for the form */
+/* CONTACT FORM WRAPPER */
+/* Card-like container for the form content */
 #contact-form {
-    width: 100%;
-    max-width: 720px;
-    padding: 1.5rem;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+    width: 100%; /* Responsive width */
+    max-width: 720px; /* Restricts maximum width for readability */
+    padding: 1.5rem; /* Inner spacing for content */
+    border-radius: 12px; /*  Smooth rounded corners */
+    background: rgba(255, 255, 255, 0.92); /* Slightly transparent white background */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    border: 1px solid rgba(0, 0, 0, 0.06); /* Thin light border for definition */
 }
 
-/* Labels and fields */
+/* CONTACT FORM LABELS */
+/* Labels for each form field */
 #contact-form label {
-    display: block;
-    margin-top: 0.9rem;
-    margin-bottom: 0.35rem;
-    font-weight: 600;
-    letter-spacing: .2px;
+    display: block; /* Places label on its own line */
+    margin-top: 0.9rem; /* Space above each label */
+    margin-bottom: 0.35rem; /* Space below each label */
+    font-weight: 600; /* Slightly bold text for clarity */
+    letter-spacing: .2px; /* Minor spacing for readability */
 }
 
 #contact-form input[type="text"],
