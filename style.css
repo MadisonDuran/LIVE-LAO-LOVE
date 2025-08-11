@@ -99,61 +99,71 @@ nav a {
     background: rgb(255, 179, 71); /* Slightly lighter gold on hover */
 }
 
-/* Pattern Divider Below Hero */
+/* PATTERN DIVIDER BELOW HERO */
+/* Creates a decorative textile strip separating sections */
 .pattern.divider {
-    background: url('/Images/textile-overlay.jpg') repeat;
-    height: 30px;
-    opacity: 0.35;
-    background-size: 80px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: url('/Images/textile-overlay.jpg') repeat; /* Textile pattern image repeated horizontally */
+    height: 30px; /* Height of the divider */
+    opacity: 0.35; /* Makes the pattern semi-transparent */
+    background-size: 80px; /* Scales the pattern image */
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Light border above the divider */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Light border below the divider */
 }
 
-/* Featured Products */
-
+/* FEATURED PRODUCTS SECTION */
+/* Styles for the section showcasing highlighted products */
 .featured {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgb(255, 249, 240);
+    text-align: center; /* Centers all text in the section */
+    padding: 40px 20px; /* All space inside the section */
+    background: rgb(255, 249, 240); /* Soft cream background color */
 }
 
+/* Heading inside the Featured Products section */
 .featured h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+    margin-bottom: 20px; /* Space below the heading */
 }
 
+/* FEATURED PRODUCTS GRID */
+/* Lays out product cards in a responsive grid */
 .featured-grid {
-    display: grid;
+    display: grid; /* Enables CSS grid layout */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    /* Creates columns that adapt to screen size:
+       - Each card is at least 200px wide
+       - Extra space is distributed evenly */;
+    gap: 20px; /* Space between grid items */
 }
 
-/* Card Styling */
+/* CARD STYLING */
+/* Styles for individual product cards */
 .card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: transform 0.3s;
+    background: white; /* Clean white background for contrast */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 10px; /* Space inside the card */
+    transition: transform 0.3s; /* Smooth scale animation on hover */
 }
 
+/* Images inside product cards */
 .card img {
-    width: 100%;
-    border-radius: 5px;
+    width: 100%; /* Makes image take up the full card width */
+    border-radius: 5px; /* Slightly rounded corners to match card style */
 }
 
+/* Hover effect for product cards */
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* About Section */
-
+/* ABOUT SECTION */
+/* Styling for the "About Live Lao Love" text block */
 .about-section {
-    background: rgb(255, 215, 0);
-    color: rgb(51, 51, 51);
-    padding: 30px;
-    text-align: center;
+    background: rgb(255, 215, 0); /* Bright gold background */
+    color: rgb(51, 51, 51); /* Dark gray text for readability */
+    padding: 30px; /* Space inside the section */
+    text-align: center; /* Centers text horizontally */
 }
 
 /* Products Page */
