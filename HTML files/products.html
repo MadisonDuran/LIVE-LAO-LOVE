@@ -2,42 +2,54 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Live Lao Love - Products</title>
+        <!-- Main CSS for styling the page -->
         <link rel="stylesheet" href="../style.css">
+        <!-- Google Fonts: Playfair Display for headings and Lato for body text -->
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!-- Header -->
+        <!-- HEADER -->
+        <!-- Contains website name and navigation links -->
          <header>
             <h1>Our Products</h1>
             <nav>
+            <!-- Navigation menu -->
                 <a href="/HTML files/index.html">Home</a>
                 <a href="/HTML files/products.html">Products</a>
                 <a href="/HTML files/contact.html">Contact</a>
             </nav>
          </header>
-         <!-- Pattern Divider Below Header -->
+         <!-- PATTERN DIVIDER -->
+         <!-- Decorative bar below the header -->
           <div class="pattern-divider"></div>
-          <!-- Filter Buttons -->
+          <!-- FILTER BUTTONS -->
+           <!-- Allows users to sort/filter products by category -->
           <section class="filters">
+            <!-- 'All' button resets to show all products -->
             <button onclick="filterProducts('All')">All</button>
+            <!-- Buttons for filtering specific product categories -->
             <button onclick="filterProducts('Food')">Food</button>
             <button onclick="filterProducts('Clothing')">Clothing</button>
             <button onclick="filterProducts('Handicrafts')">Handicrafts</button>
             <button onclick="filterProducts('Home & Decor')">Home & Decor</button>
             <button onclick="filterProducts('Modern Merchandise')">Modern Merchandise</button>
           </section>
-          <!-- Product Grid -->
+          <!-- PRODUCT GRID -->
+          <!-- Products will be dynamically added here using JavaScript -->
            <section id="product-list">
+            <!-- Placeholder text before products load -->
             <!-- Products will load here dynamically with JS -->
            </section>
-           <!-- Footer -->
+           <!-- FOOTER -->
+           <!-- Contains cultural greeting and copyright information -->
             <footer>
                 <div class="pattern-bar"></div>
                 <p>Sabaidee - Welcome to Lao Culture</p>
                 <p>© 2025 Live Lao Love | Embrace Lao Heritage</p>
             </footer>
+            <!-- JavaScript file to handle product loading and filtering -->
             <script src="../script.js"></script>
     </body>
 </html>
