@@ -1,27 +1,33 @@
-'use strict'
+'use strict' // Enforces strict mode for cleaner, more secure JavaScript
 
-let products = [];
+// Store all products from the JSON file here
+let products = []; // Initialize an empty array to hold product data
 
-const inHtmlFolder = decodeURIComponent(location.pathname).includes('HTML files');
-location.pathname.includes('/HTML%20files/')
-const BASE = inHtmlFolder ? '../' : './';
+// Determine the base path for fetching resources
+const inHtmlFolder = decodeURIComponent(location.pathname).includes('HTML files');  
+// Check if the current path includes 'HTML files' to set the base path correctly
+location.pathname.includes('/HTML%20files/') // Check for URL encoding of 'HTML files' to ensure compatibility
+const BASE = inHtmlFolder ? '../' : './'; 
+// Set the base path to one level up if in 'HTML files' folder, otherwise stay in the current directory
 
-// Fetch products from JSON
-fetch(`${BASE}products.json`)
-  .then(res => res.json())
-  .then(data => {
-    products = data;
-    displayProducts(products);
+// Fetch products from the JSON file
+fetch(`${BASE}products.json`) // Use the base path to locate the JSON file
+  .then(res => res.json()) // Convert the JSON response into a JavaScript object
+  .then(data => { // Process the fetched data
+    products = data; // Save the product list to our 'products' variable
+    displayProducts(products); // Show all products on page load
   })
-  .catch(err => console.error('Error loading products:', err));
+  .catch(err => console.error('Error loading products:', err)); // Log any errors
 
-  // Display products dynamically 
-  function displayProducts(productList) {
-    const container = document.getElementById('product-list');
-    if (!container) return;
-    container.innerHTML = "";
-    productList.forEach(p => {
-        container.innerHTML += `
+  // Function to display products dynamically
+  function displayProducts(productList) { // Takes an array of products and renders them in the HTML
+    const container = document.getElementById('product-list'); // Find where products will be displayed
+    if (!container) return; // Stop if container is not found (prevents errors)
+    container.innerHTML = "";  // Clear any existing content in the container
+    // Loop through each product and create HTML elements
+    productList.forEach(p => { // For each product in the list
+      // Create a product card with image, name, description, and price
+        container.innerHTML += ` 
         <div class="product-card">
           <img src="${BASE}/Images/${p.image}" alt="${p.name}">
           <h3>${p.name}</h3>
@@ -32,12 +38,15 @@ fetch(`${BASE}products.json`)
     });
   }
 
-  function filterProducts(category) {
+  // Function to filter products by category
+  function filterProducts(category) { // Takes a category string and filters the products
     if (category === 'All') {
-        displayProducts(products);
+      // Show all products if 'All' is selected
+      displayProducts(products);
     } else {
-      const filtered = products.filter(p => p.category.toLowerCase().includes(category.toLowerCase())
-    );
+      // Filter products so only matching categories are shown
+      const filtered = products.filter(p => p.category.toLowerCase().includes(category.toLowerCase())); // Case-insensitive filter
+      // Display the filtered products
       displayProducts(filtered);
     }
   }
