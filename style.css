@@ -350,27 +350,35 @@ to a field, usually after a failed form validation */
 }
 
 /* FOOTER STYLES */
-/* Formatting for the footer section at the bottom of the page */
-
+/* Formatting for the footer at the bottom of the page */
 footer {
-    text-align: center;
-    background: rgb(166, 44, 43);
-    color: white;
-    padding: 40px 15px;
-    margin-top: 0;
+    text-align: center; /* Centers all text in the footer */
+    background: rgb(166, 44, 43); /* Solid red background */
+    color: white; /* White text for high contrast */
+    padding: 40px 15px; /* Spacious padding for breathing room */
+    margin-top: 0; /* Ensures footer aligns directly below content */
 }
 
+/* PATTERN BAR */
+/* Decorative horizontal bar with repeating pattern texture */
 .pattern-bar {
-    background: url('/Images/textile-overlay.jpg') repeat;
-    height: 40px;
-    opacity: 0.3;
-    background-size: 80px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    background: url('/Images/textile-overlay.jpg') repeat; /* Image repeats horizontally */
+    height: 40px; /* Thin bar height */
+    opacity: 0.3; /* Semi-transparent look */
+    background-size: 80px; /* Size of repeated pattern */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Light top border for separation */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Dark bottom border for contrast */
 }
 
-/* Animations */
+/* ANIMATIONS */
+/* fadeInUp - Makes elements slide in from below while fading in */
 @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% {opacity: 1; transform: translateY(0); }
+    0% { 
+        opacity: 0; /* Element is invisible at start */
+        transform: translateY(30px); /* Starts 30px below its final position */
+    } 
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Moves into original position */
+    }
 }
