@@ -1,94 +1,102 @@
-/* Global Styles */
+/* GLOBAL STYLES: These rules apply to the entire website */
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif; /* Sets clean, modern font */
     background: linear-gradient(to bottom, #fff9f0, #FFD700, #A62C2B);
-    margin: 0;
-    color: #333;
+    /* Gradient background: top (light cream) to middle (gold) to bottom (deep red) */
+    margin: 0; /* Removes default browser margin */
+    color: #333; /* Dark gray text for readability */
 }
 
-/* Header */
+/* HEADER STYLES: Top navigation bar and title */
 header {
-    background: rgb(166, 44, 43);
-    color: white;
-    text-align: center;
-    padding: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    background: rgb(166, 44, 43); /* Deep red background for brand identity */
+    color: white; /* White text for contrast */
+    text-align: center; /* Centers header text */
+    padding: 15px; /* Space inside the header */
+    position: sticky; /* Keeps header visible when scrolling */
+    top: 0; /* Sticks to the top of the page */
+    z-index: 10; /* Ensures header stays above other elements */
 }
 
+/* Navigation links inside the header */
 nav a {
-    color: white; 
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
+    color: white; /* White link for text */
+    margin: 0 10px; /* Space between links */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Bold links for emphasis */
 }
 
-/* Hero Section */
+/* Hero Section: Large banner section at the top of the page */
 .hero {
-    position: relative;
-    height: 85vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
+    position: relative; /* Allows positioning of child elements */
+    height: 85vh; /* Hero takes up 85% of viewport height */
+    overflow: hidden; /* Hides any overflow from video or content */
+    display: flex; /* Enables flexbox for centering content */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    color: white; /* White text for contrast over video/image */
+    text-align: center; /* Centers text lines */
 }
 
+/* Video background inside hero */
 .hero-video {
-    position: absolute;
+    position: absolute; /* Positions video behind the content */
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures video covers entire hero area without distortion */
     filter: brightness(0.7) saturate(1.2);
     z-index: 0;
 }
 
+/* HERO OVERLAY: A semi-transparent color overlay on top of the hero video */
 .hero .overlay {
-    position: absolute;
+    position: absolute; /* Positions overlay on top of hero section */
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(166, 44, 43, 0.3);
-    mix-blend-mode: multiply;
-    z-index: 1;
+    background: rgba(166, 44, 43, 0.3); /* Red overlay with 30% opacity */
+    mix-blend-mode: multiply; /* Blends overlay color with background video/image */
+    z-index: 1; /* Places overlay above video but below text */
 }
 
+/* HERO CONTENT CONTAINER: Holds text and buttons over the hero section */
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px);
-    border-radius: 8px;
-    animation: fadeInUp 1.2s ease-in-out;
+    position: relative; /* Keeps it above overlay but in hero section */
+    z-index: 2; /* Ensures text is visible above overlay */
+    max-width: 600px; /* Prevents text from getting too wide */
+    padding: 20px; /* Space inside the content box */
+    background: rgba(0, 0, 0, 0.3); /* Transparent black for contrast over video */
+    backdrop-filter: blur(5px); /* Slight blur behind text for readability */
+    border-radius: 8px; /* Rounded corners */
+    animation: fadeInUp 1.2s ease-in-out; /* Smooth fade-in effect */
 }
 
+/* HERO HEADINGS: Main title (h1) and subtitle (h2) styling */
 .hero-content h1 {
-    font-size: 3em;
-    color: rgb(255, 215, 0)
+    font-size: 3em; /* Large, bold heading */
+    color: rgb(255, 215, 0); /* Gold color for standout effect */
 }
 
 .hero-content h2 {
-    font-size: 1.5em;
-    margin: 10px 0 20px;
-    color: rgb(255, 249, 240)
+    font-size: 1.5em; /* Slightly smaller subtitle */
+    margin: 10px 0 20px; /* Space above and below */
+    color: rgb(255, 249, 240); /* Off-white for readability */
 }
 
+/* BUTTONS IN HERO */ 
+/* Call-to-action styling */
 .btn {
-    background: rgb(255, 215, 0);
-    color: rgb(51, 51, 51);
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
+    background: rgb(255, 215, 0); /* Gold background to match h1 */
+    color: rgb(51, 51, 51); /* Dark gray text for contrast */
+    padding: 12px 25px; /* Clickable button size */
+    border-radius: 5px; /* Slightly rounded corners */
+    text-decoration: none; /* Removes underline for links */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background 0.3s; /* Smooth hover effect */
 }
 
 .btn:hover {
-    background: rgb(255, 179, 71);
+    background: rgb(255, 179, 71); /* Slightly lighter gold on hover */
 }
 
 /* Pattern Divider Below Hero */
