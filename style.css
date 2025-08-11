@@ -193,7 +193,7 @@ nav a {
 }
 
 
-/* PRODUCT LIST */
+/* PRODUCT GRID */
 #product-list {
     display: grid; /* Enables CSS grid layout */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -207,7 +207,28 @@ nav a {
     justify-content: center; /* Centers grid items if extra space exists */
 }
 
-/* PRODUCTS TITLES */
+/* PRODUCT CARDS - Main Container */
+.product-card {
+    background: white; /* Gives each product card a clean white background for contrast against the page */
+    max-width: 250px; /* Prevents cards from getting too wide */
+    width: 90%; /* Keeps the card responsive inside its grid cell */
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow to create depth */
+    padding: 15px; /* Space inside the card around the content */
+    margin-top: 20px; /* Adds spacing above each card so they don't touch elements above */
+    text-align: center; /* Centers the text and images inside the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation when hovering or interacting */
+}
+
+/* Product Image Styling */
+.product-card img {
+   max-width: 100%; /* Ensures the image never overflows the card */
+   height: auto; /* Maintains the image's aspect ratio */
+   margin: 0 auto 10px; /* Centers the image and adds space below it */
+   display: block; /* Removes inline spacing issues with images */
+}
+
+/* PRODUCT TITLE STYLING */
 .product-card h3 {
     font-family: 'Playfair Display', serif; /* Elegant font for titles */
     font-size: 1.2em; /* Slightly larger text size */
