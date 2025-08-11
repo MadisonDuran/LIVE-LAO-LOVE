@@ -225,6 +225,103 @@ nav a {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Contact Page */
+section.contact-form {
+    padding: 2rem 1rem;
+    display: grid;
+    place-items: center;
+}
+
+/* Card style wrapper for the form */
+#contact-form {
+    width: 100%;
+    max-width: 720px;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Labels and fields */
+#contact-form label {
+    display: block;
+    margin-top: 0.9rem;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 95%;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid rgb(200, 200, 200);
+    border-radius: 10px;
+    font: inherit;
+    background: rgb(255, 255, 255);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* Focus and hover effects */
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: rgb(187, 51, 51);
+    box-shadow: 0 0 4px rgba(179, 51, 51, 0.12);
+}
+
+#contact-form input:hover,
+#contact-form textarea:hover {
+    border-color: rgb(166, 166, 166);
+}
+
+/* Error text blocks in my HTML */
+
+#contact-form .error {
+    color: rgb(176, 0, 32);
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    line-height: 1.2;
+    min-height: 1.1rem;
+}
+
+/* If JS adds .is-invalid to fields, make them red */
+
+#contact-form .isvalid {
+    border-color: rgb(176, 0, 32) !important;
+    box-shadow: 0 0 0 4px rgba(176, 0, 32, 0.12);
+}
+
+/* Submit button */
+#contact-form .submit-button{
+    margin-top: 1.25rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(180deg, rgb(192, 41, 43), rgb(142, 31, 20));
+    color: rgb(255, 255, 255);
+    width: 100%;
+    transition: transform 0.6s ease, filter .2s ease;
+}
+
+#contact-form .submit-button:hover {
+   filter: brightness(1.05);
+}
+
+#contact-form .submit-button:active {
+    transform: translateY(1px);
+}
+
 /* Footer */
 
 footer {
