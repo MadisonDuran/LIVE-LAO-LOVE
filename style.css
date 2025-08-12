@@ -196,11 +196,12 @@ nav a {
 /* PRODUCT GRID */
 #product-list {
     display: grid; /* Enables CSS grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.1fr));
     /* Creates a responsive grid:
        - Each card is at least 250px wide
        - Automatically fills available space */
-    gap: 30px; /* Space between cards */
+    gap: 50px; /* Space between cards */
+    align-items: stretch;
     max-width: 1200px; /* Prevents grid from stretching too wide */
     margin: 0 auto 80px; /* Centers grid and adds space at the bottom */
     padding: 40px 5%; /* Space inside the grid container */
@@ -211,21 +212,27 @@ nav a {
 .product-card {
     background: white; /* Gives each product card a clean white background for contrast against the page */
     max-width: 250px; /* Prevents cards from getting too wide */
-    width: 90%; /* Keeps the card responsive inside its grid cell */
+    width: 100%; /* Keeps the card responsive inside its grid cell */
     border-radius: 8px; /* Slightly rounded corners for a softer look */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow to create depth */
     padding: 15px; /* Space inside the card around the content */
     margin-top: 20px; /* Adds spacing above each card so they don't touch elements above */
     text-align: center; /* Centers the text and images inside the card */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation when hovering or interacting */
+    display: flex; /* Enables flexbox layout for vertical stacking */
+    flex-direction: column; /* Stacks child elements from top to bottom */
+    height: 100%; /* Makes the card fill the available vertical space */
 }
 
 /* Product Image Styling */
 .product-card img {
-   max-width: 100%; /* Ensures the image never overflows the card */
-   height: auto; /* Maintains the image's aspect ratio */
+   width: 100%; /* Ensures the image never overflows the card */
+   height: 220px; /* Maintains the image's aspect ratio */
+   object-fit: cover;
+   border-radius: 8px;
    margin: 0 auto 10px; /* Centers the image and adds space below it */
    display: block; /* Removes inline spacing issues with images */
+
 }
 
 /* PRODUCT TITLE STYLING */
@@ -402,4 +409,75 @@ footer {
         opacity: 1; /* Fully visible */
         transform: translateY(0); /* Moves into original position */
     }
+}
+
+/* Base (applies to all) */
+
+#product-list { /* Main container for product cards */
+    display: grid; /* Use grid layout for product cards */
+    align-items: start; /* Aligns items to the start of each grid cell */
+}
+
+.product-card img {
+    width: 100%; /* Makes product images responsive */
+    object-fit: cover; /* Crops tall wide images nicely */
+    display: block; /* Removes inline spacing issues */
+    border-radius: 6px; /* Rounded corners for product images */
+}
+
+/* RESPNOSIVE LAYOUT - MOBILE, TABLET, DESKTOP */
+
+/* MOBILE MEDIA QUERY */
+/* Goal: single column layout, compact spacing, consistent image height */
+@media (max-width: 799px) { /* Adjustments for smaller screens */
+    .hero { height: 60vh; } /* Shortens hero section height on small screens */
+
+    .featured-grid { grid-template-columns: 1fr; gap: 16px; } /* Single column layout for featured products */
+    
+    #product-list { 
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Smaller cards on mobile */
+        gap: 16px; /* Reduced gap between cards */
+    }
+    .product-card img { height: 220px; } /* Fixed height for product images on mobile */
+
+    nav a { display: inline-block; margin: 6px 10px; } /* Stacks navigation links vertically with space */
+    section.contact-form { padding: 2rem 1rem; } /* Reduces padding in contact form section */
+}
+
+/* TABLET MEDIA QUERY */
+/* Goal: 3 columns for featured, bigger product images, roomier padding */
+@media (min-width: 800px) and (max-width: 1199px) { /* Adjustments for medium screens */
+    .hero { height: 80vh; } /* Taller hero section on tablets */
+
+    .featured-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } /* Featured section shows 3 cards per row */
+    
+    /* Product grid: responsive columns */
+    #product-list { 
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+        gap: 24px; 
+    }
+    
+    /* Product images: taller for better visibility on tablets */
+    .product-card img { height: 220px; } /* Taller images for better visibility on tablets */
+
+    /* Contact section gets a bit more brathing room */
+    section.contact-form { padding: 3rem 1rem; }
+}
+
+/* DESKTOP MEDIA QUERY */
+/* Goal: denser grid, larger images, taller hero */
+@media (min-width: 1200px) and (max-width: 1500px) {
+    .hero { height: 85vh; } 
+
+    /* Featured: up to 4 cards per row with wider gaps */
+    .featured-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    /* Product grid: larger minimum card size */
+    #product-list  {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 28px;
+    }
+
+    /* Products images scale up to match the larger cards */
+    .product-card img { height: 220px; }
 }
