@@ -196,12 +196,12 @@ nav a {
 /* PRODUCT GRID */
 #product-list {
     display: grid; /* Enables CSS grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 0.1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.3fr));
     /* Creates a responsive grid:
        - Each card is at least 250px wide
        - Automatically fills available space */
-    gap: 50px; /* Space between cards */
     align-items: stretch;
+    gap: 30px; /* Space between cards */
     max-width: 1200px; /* Prevents grid from stretching too wide */
     margin: 0 auto 80px; /* Centers grid and adds space at the bottom */
     padding: 40px 5%; /* Space inside the grid container */
@@ -221,7 +221,7 @@ nav a {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation when hovering or interacting */
     display: flex; /* Enables flexbox layout for vertical stacking */
     flex-direction: column; /* Stacks child elements from top to bottom */
-    height: 100%; /* Makes the card fill the available vertical space */
+    height: 90%; /* Makes the card fill the available vertical space */
 }
 
 /* Product Image Styling */
@@ -474,8 +474,8 @@ footer {
 
     /* Product grid: larger minimum card size */
     #product-list  {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        gap: 28px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, .4fr));
+        gap: 24px;
     }
 
     /* Products images scale up to match the larger cards */
