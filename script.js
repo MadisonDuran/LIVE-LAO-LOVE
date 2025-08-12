@@ -4,7 +4,7 @@
 let products = []; // Initialize an empty array to hold product data
 
 // Determine the base path for fetching resources
-const inHtmlFolder = decodeURIComponent(location.pathname).includes('HTML files');  
+const inHtmlFolder = decodeURIComponent(location.pathname).includes('HTML_files');  
 // Check if the current path includes 'HTML files' to set the base path correctly
 location.pathname.includes('/HTML%20files/') // Check for URL encoding of 'HTML files' to ensure compatibility
 const BASE = inHtmlFolder ? '../' : './'; 
