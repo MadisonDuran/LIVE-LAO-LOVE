@@ -28,35 +28,35 @@
         <section class="contact-form">
             <h2>We'd Love to Hear From You!</h2>
             <!-- FORM SECTION -->
-            <form id="contact-form" novalidate>
+            <form id="contact-form" class="contact-form">
                 <!-- First Name -->
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
-                <div class="error" id="first-name-error"></div>
-
+                <label class="contact-form__label">First Name:
+                <input class="contact-form__input" type="text" name="firstName" id="firstName">
+                <span class="contact-form__error"></span>
+                </label>
                 <!-- Last Name -->
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
-                <div class="error" id="last-name-error"></div>
-
+                <label class="contact-form__label">Last Name:
+                <input class="contact-form__input" type="text" name="lastName" id="lastName">
+                <span class="contact-form__error"></span>
+                </label>
                 <!-- Email -->
-                <label for="user-email">Email:</label>
-                <input type="email" id="user-email" name="user-email" required>
-                <div class="error" id="user-email-error"></div>
-
+                <label class="contact-form__label">Email:
+                <input class="contact-form__input" type="email" name="email" id="email">
+                <span class="contact-form__error"></span>
+                </label>
                 <!-- Message -->
-                <label for="user-message">Message:</label>
-                <textarea id="user-message" name="user-message" rows="5" required></textarea>
-                <div class="error" id="user-message-error"></div>
-
+                <label class="contact-form__label">Message:
+                <textarea class="contact-form__input" name="message" id="message"></textarea>
+                <span class="contact-form__error"></span>
+                </label>
                 <!-- Country -->
-                <label for="user-country">Country:</label>
-                <input type="text" id="user-country" name="user-country" required>
-                <div class="error" id="user-country-error"></div>
-
+                <label class="contact-form__label">Country:
+                <input class="contact-form__input" type="text" name="country" id="country">
+                <span class="contact-form__error"></span>
+                </label>
                 <button type="submit" class="submit-button">Send Message</button>
-            </form>
-            </section>
+                </form>
+                </section>
         <!-- FOOTER -->
         <!-- Includes decorative pattern and site footer text -->
         <footer>

@@ -427,7 +427,7 @@ footer {
 
 /* RESPNOSIVE LAYOUT - MOBILE, TABLET, DESKTOP */
 
-/* MOBILE MEDIA QUERY */
+/* MOBILE MEDIA QUERY  (<800px) */ 
 /* Goal: single column layout, compact spacing, consistent image height */
 @media (max-width: 799px) { /* Adjustments for smaller screens */
     .hero { height: 60vh; } /* Shortens hero section height on small screens */
@@ -444,7 +444,7 @@ footer {
     section.contact-form { padding: 2rem 1rem; } /* Reduces padding in contact form section */
 }
 
-/* TABLET MEDIA QUERY */
+/* TABLET MEDIA QUERY ( >=800px ) */ 
 /* Goal: 3 columns for featured, bigger product images, roomier padding */
 @media (min-width: 800px) and (max-width: 1199px) { /* Adjustments for medium screens */
     .hero { height: 80vh; } /* Taller hero section on tablets */

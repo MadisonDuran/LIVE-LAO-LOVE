@@ -50,3 +50,65 @@ fetch(`${BASE}products.json`) // Use the base path to locate the JSON file
       displayProducts(filtered);
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    // Clear previous errors
+    form.querySelectorAll('.contact-form__error').forEach(el => el.textContent = '');
+
+    let valid = true;
+
+    // First Name validation
+    const firstName = form.querySelector('#firstName');
+    if (!firstName.value.trim()) {
+      showError(firstName, 'Please enter your first name.');
+      valid = false;
+    }
+
+    // Last Name validation
+    const lastName = form.querySelector('#lastName');
+    if (!lastName.value.trim()) {
+      showError(lastName, 'Please enter your last name.');
+      valid = false;
+    }
+
+    // Email validation
+    const email = form.querySelector('#email');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim()) {
+      showError(email, 'Please enter your email.');
+      valid = false;
+    } else if (!emailPattern.test(email.value.trim())) {
+      showError(email, 'Please enter a valid email address.');
+      valid = false;
+    }
+
+    // Message validation
+    const message = form.querySelector('#message');
+    if (!message.value.trim()) {
+      showError(message, 'Please enter your message.');
+      valid = false;
+    }
+
+    // Country validation
+    const country = form.querySelector('#country');
+    if (!country.value.trim()) {
+      showError(country, 'Please enter your country.');
+      valid = false;
+    }
+
+    if (!valid) e.preventDefault();
+  });
+
+  function showError(input, message) {
+    let error = input.parentElement.querySelector('.contact-form__error');
+    if (error) {
+      error.textContent = message;
+      error.style.color = 'red';
+      error.style.fontSize = '0.95em';
+    }
+  }
+});
