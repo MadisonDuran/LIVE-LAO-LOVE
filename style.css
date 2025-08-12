@@ -72,12 +72,12 @@ nav a {
 }
 
 /* HERO HEADINGS: Main title (h1) and subtitle (h2) styling */
-.hero-content h1 {
+.hero-content h2 {
     font-size: 3em; /* Large, bold heading */
     color: rgb(255, 215, 0); /* Gold color for standout effect */
 }
 
-.hero-content h2 {
+.hero-content h3 {
     font-size: 1.5em; /* Slightly smaller subtitle */
     margin: 10px 0 20px; /* Space above and below */
     color: rgb(255, 249, 240); /* Off-white for readability */
