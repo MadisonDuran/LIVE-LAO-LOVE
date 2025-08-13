@@ -387,27 +387,33 @@ footer {
     margin-top: 0; /* Ensures footer aligns directly below content */
 }
 
+/* SOCIAL ICON ROW */
+/* Lays out the social icons side-by-side and centered */
 .footer__social {
-    display: flex;
+    display: flex; /* Turns the row into a flex container */
     justify-content: center;/* Center the icons horizontally */
-    align-items: center;
+    align-items: center; /* Vertically aligns icons in a row. */
     gap: 20px;/* Space between icons */
-    margin-top: 12px;
+    margin-top: 12px; /* Space above the icon row */
 }
 
+/* SOCIAL ICON IMAGES */
+/* Normalizes icon size/shape and adds a subtle shadow */
 .footer__social a img {
-    height: 28px;
-    width: 28px;
+    height: 28px; /* Consistent icon height */
+    width: 28px; /* Constistent icon width */
     border-radius: 50%; /* Makes icons round if images are square */
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
+    object-fit: cover; /* Crops if the image isn't perfectly square */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Soft depth to lift focus */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover animation */
 }
 
+/* SOCIAL ICON HOVER EFFECT */
+/* Slight zoom + stronger shadow for a tactile feel */
 .footer__social a img:hover {
-    transform: scale(1.15);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    opacity: 0.85;
+    transform: scale(1.15); /* Gently grows on hover */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18); /* Deeper shadow while hovered */
+    opacity: 0.85; /* Tiny fade for feedback */
 }
 
 /* PATTERN BAR */
