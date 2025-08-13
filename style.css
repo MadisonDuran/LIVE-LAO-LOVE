@@ -387,6 +387,29 @@ footer {
     margin-top: 0; /* Ensures footer aligns directly below content */
 }
 
+.footer__social {
+    display: flex;
+    justify-content: center;/* Center the icons horizontally */
+    align-items: center;
+    gap: 20px;/* Space between icons */
+    margin-top: 12px;
+}
+
+.footer__social a img {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%; /* Makes icons round if images are square */
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.footer__social a img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    opacity: 0.85;
+}
+
 /* PATTERN BAR */
 /* Decorative horizontal bar with repeating pattern texture */
 .pattern-bar {
