@@ -6,7 +6,6 @@ let products = []; // Initialize an empty array to hold product data
 // Determine the base path for fetching resources
 const inHtmlFolder = decodeURIComponent(location.pathname).includes('HTML_files');  
 // Check if the current path includes 'HTML files' to set the base path correctly
-location.pathname.includes('/HTML%20files/') // Check for URL encoding of 'HTML files' to ensure compatibility
 const BASE = inHtmlFolder ? '../' : './'; 
 // Set the base path to one level up if in 'HTML files' folder, otherwise stay in the current directory
 
@@ -17,7 +16,7 @@ fetch(`${BASE}products.json`) // Use the base path to locate the JSON file
     products = data; // Save the product list to our 'products' variable
     displayProducts(products); // Show all products on page load
   })
-  .catch(err => console.error('Error loading products:', err)); // Log any errors
+  .catch(err => console.error('Error loading products:', err)); // Log any errors if the fetch fails
 
   // Function to display products dynamically
   function displayProducts(productList) { // Takes an array of products and renders them in the HTML
@@ -51,15 +50,15 @@ fetch(`${BASE}products.json`) // Use the base path to locate the JSON file
     }
   }
 
-  document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
+  document.addEventListener('DOMContentLoaded', function() { // code waits until entire html page is fully loaded 
+  const form = document.getElementById('contact-form'); // when form is submitted, make sure all the fields are filled in
+  if (!form) return; // if form doesn't exist don't run code
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function(e) { // when someone tries to submit this form run the function
     // Clear previous errors
     form.querySelectorAll('.contact-form__error').forEach(el => el.textContent = '');
 
-    let valid = true;
+    let valid = true; // the form will submit
 
     // First Name validation
     const firstName = form.querySelector('#firstName');
