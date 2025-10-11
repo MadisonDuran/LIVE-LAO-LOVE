@@ -10,10 +10,10 @@ const BASE = inHtmlFolder ? '../' : './';
 // Set the base path to one level up if in 'HTML files' folder, otherwise stay in the current directory
 
 // Fetch products from the JSON file
-fetch(`${BASE}products.json`) // Use the base path to locate the JSON file
+fetch(`${BASE}server/products.json`) // Use the base path to locate the JSON file
   .then(res => res.json()) // Convert the JSON response into a JavaScript object
   .then(data => { // Process the fetched data
-    products = data; // Save the product list to our 'products' variable
+    products = data; // putting the fetch data in the products array
     displayProducts(products); // Show all products on page load
   })
   .catch(err => console.error('Error loading products:', err)); // Log any errors if the fetch fails
