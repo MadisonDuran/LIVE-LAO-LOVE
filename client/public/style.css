@@ -1,0 +1,522 @@
+/* GLOBAL STYLES: These rules apply to the entire website */
+
+
+body {
+    font-family: 'Lato', sans-serif; /* Sets clean, modern font */
+    background: linear-gradient(to bottom, #fff9f0, #FFD700, #A62C2B);
+    /* Gradient background: top (light cream) to middle (gold) to bottom (deep red) */
+    margin: 0; /* Removes default browser margin */
+    color: #333; /* Dark gray text for readability */
+}
+
+/* HEADER STYLES: Top navigation bar and title */
+header {
+    background: rgb(166, 44, 43); /* Deep red background for brand identity */
+    color: white; /* White text for contrast */
+    text-align: center; /* Centers header text */
+    padding: 15px; /* Space inside the header */
+    position: sticky; /* Keeps header visible when scrolling */
+    top: 0; /* Sticks to the top of the page */
+    z-index: 10; /* Ensures header stays above other elements */
+}
+
+/* Navigation links inside the header */
+nav a {
+    color: white; /* White link for text */
+    margin: 0 10px; /* Space between links */
+    text-decoration: none; /* Removes underline */
+    font-weight: bold; /* Bold links for emphasis */
+}
+
+/* Hero Section: Large banner section at the top of the page */
+.hero {
+    position: relative; /* Allows positioning of child elements */
+    height: 85vh; /* Hero takes up 85% of viewport height */
+    overflow: hidden; /* Hides any overflow from video or content */
+    display: flex; /* Enables flexbox for centering content */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    color: white; /* White text for contrast over video/image */
+    text-align: center; /* Centers text lines */
+}
+
+/* Video background inside hero */
+.hero-video {
+    position: absolute; /* Positions video behind the content */
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers entire hero area without distortion */
+    filter: brightness(0.7) saturate(1.2);
+    z-index: 0;
+}
+
+/* HERO OVERLAY: A semi-transparent color overlay on top of the hero video */
+.hero .overlay {
+    position: absolute; /* Positions overlay on top of hero section */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(166, 44, 43, 0.3); /* Red overlay with 30% opacity */
+    mix-blend-mode: multiply; /* Blends overlay color with background video/image */
+    z-index: 1; /* Places overlay above video but below text */
+}
+
+/* HERO CONTENT CONTAINER: Holds text and buttons over the hero section */
+.hero-content {
+    position: relative; /* Keeps it above overlay but in hero section */
+    z-index: 2; /* Ensures text is visible above overlay */
+    max-width: 600px; /* Prevents text from getting too wide */
+    padding: 20px; /* Space inside the content box */
+    background: rgba(0, 0, 0, 0.3); /* Transparent black for contrast over video */
+    backdrop-filter: blur(5px); /* Slight blur behind text for readability */
+    border-radius: 8px; /* Rounded corners */
+    animation: fadeInUp 1.2s ease-in-out; /* Smooth fade-in effect */
+}
+
+/* HERO HEADINGS: Main title (h1) and subtitle (h2) styling */
+.hero-content h2 {
+    font-size: 3em; /* Large, bold heading */
+    color: rgb(255, 215, 0); /* Gold color for standout effect */
+}
+
+.hero-content h3 {
+    font-size: 1.5em; /* Slightly smaller subtitle */
+    margin: 10px 0 20px; /* Space above and below */
+    color: rgb(255, 249, 240); /* Off-white for readability */
+}
+
+/* BUTTONS IN HERO */ 
+/* Call-to-action styling */
+.btn {
+    background: rgb(255, 215, 0); /* Gold background to match h1 */
+    color: rgb(51, 51, 51); /* Dark gray text for contrast */
+    padding: 12px 25px; /* Clickable button size */
+    border-radius: 5px; /* Slightly rounded corners */
+    text-decoration: none; /* Removes underline for links */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background 0.3s; /* Smooth hover effect */
+}
+
+.btn:hover {
+    background: rgb(255, 179, 71); /* Slightly lighter gold on hover */
+}
+
+/* PATTERN DIVIDER BELOW HERO */
+/* Creates a decorative textile strip separating sections */
+.pattern.divider {
+    background: url("/Images/textile-overlay.jpg") repeat; 
+    height: 30px; /* Height of the divider */
+    opacity: 0.35; /* Makes the pattern semi-transparent */
+    background-size: 80px; /* Scales the pattern image */
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Light border above the divider */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Light border below the divider */
+}
+
+/* FEATURED PRODUCTS SECTION */
+/* Styles for the section showcasing highlighted products */
+.featured {
+    text-align: center; /* Centers all text in the section */
+    padding: 40px 20px; /* All space inside the section */
+    background: rgb(255, 249, 240); /* Soft cream background color */
+}
+
+/* Heading inside the Featured Products section */
+.featured h2 {
+    font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* FEATURED PRODUCTS GRID */
+/* Lays out product cards in a responsive grid */
+.featured-grid {
+    display: grid; /* Enables CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Creates columns that adapt to screen size:
+       - Each card is at least 200px wide
+       - Extra space is distributed evenly */;
+    gap: 20px; /* Space between grid items */
+}
+
+/* CARD STYLING */
+/* Styles for individual product cards */
+.card {
+    background: white; /* Clean white background for contrast */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 10px; /* Space inside the card */
+    transition: transform 0.3s; /* Smooth scale animation on hover */
+}
+
+/* Images inside product cards */
+.card img {
+    width: 100%; /* Makes image take up the full card width */
+    border-radius: 5px; /* Slightly rounded corners to match card style */
+}
+
+/* Hover effect for product cards */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ABOUT SECTION */
+/* Styling for the "About Live Lao Love" text block */
+.about-section {
+    background: rgb(255, 215, 0); /* Bright gold background */
+    color: rgb(51, 51, 51); /* Dark gray text for readability */
+    padding: 30px; /* Space inside the section */
+    text-align: center; /* Centers text horizontally */
+}
+
+/* PRODUCTS PAGE */
+/* This section contains buttons to filter products by category */
+.filters {
+    text-align: center; /* Centers all filter buttons horizontally */
+    background: #FFD700; /* Bright gold background for visibility */
+    padding: 15px; /* Space around the content */
+    border-bottom: 2px solid rgb(166, 44, 43); /* Red border separating from content below */
+}
+
+.filters button {
+    background: rgb(166, 44, 43); /* Deep red background */
+    color: white; /* White text for contrast */
+    border: none; /* Removes default button border */
+    margin: 5px; /* Space between buttons */
+    padding: 10px 15px; /* Comfortable clickable size */
+    cursor: pointer; /* Pointer cursor to indicate clickability */
+    border-radius: 5px; /* Slightly rounded corners */
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background 0.3s ease; /* Smooth background color change on hover */
+}
+
+/* Hover effect for filter buttons */
+.filters button:hover {
+    background: rgb(139, 28, 27); /* Darker red when hovered */
+}
+
+
+/* PRODUCT GRID */
+#product-list {
+    display: grid; /* Enables CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 0.3fr));
+    /* Creates a responsive grid:
+       - Each card is at least 250px wide
+       - Automatically fills available space */
+    align-items: stretch;
+    gap: 30px; /* Space between cards */
+    max-width: 1200px; /* Prevents grid from stretching too wide */
+    margin: 0 auto 80px; /* Centers grid and adds space at the bottom */
+    padding: 40px 5%; /* Space inside the grid container */
+    justify-content: center; /* Centers grid items if extra space exists */
+}
+
+/* PRODUCT CARDS - Main Container */
+.product-card {
+    background: white; /* Gives each product card a clean white background for contrast against the page */
+    max-width: 250px; /* Prevents cards from getting too wide */
+    width: 100%; /* Keeps the card responsive inside its grid cell */
+    border-radius: 8px; /* Slightly rounded corners for a softer look */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Light shadow to create depth */
+    padding: 15px; /* Space inside the card around the content */
+    margin-top: 20px; /* Adds spacing above each card so they don't touch elements above */
+    text-align: center; /* Centers the text and images inside the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation when hovering or interacting */
+    display: flex; /* Enables flexbox layout for vertical stacking */
+    flex-direction: column; /* Stacks child elements from top to bottom */
+    height: 90%; /* Makes the card fill the available vertical space */
+}
+
+/* Product Image Styling */
+.product-card img {
+   width: 100%; /* Ensures the image never overflows the card */
+   height: 220px; /* Maintains the image's aspect ratio */
+   object-fit: cover;
+   border-radius: 8px;
+   margin: 0 auto 10px; /* Centers the image and adds space below it */
+   display: block; /* Removes inline spacing issues with images */
+
+}
+
+/* PRODUCT TITLE STYLING */
+.product-card h3 {
+    font-family: 'Playfair Display', serif; /* Elegant font for titles */
+    font-size: 1.2em; /* Slightly larger text size */
+    margin: 10px 0; /* Space above and below the title */
+    color: rgb(166, 44, 43); /* Deep red color matching brand theme */
+}
+
+/* PRODUCT DESCRIPTION */
+/* Small text below the title */
+.product-card p {
+    font-size: 0.9em; /* Smaller text size */
+    color: rgb(85, 85, 85); /* Medium gray for less emphasis */
+    margin-bottom: 10px; /* Space below description */
+}
+
+/* PRODUCT PRICE */
+/* Styled to be noticeable but not overpowering */
+.product-card strong {
+    font-size: 1.1em; /* Slightly larger text size */
+    color: rgb(51, 51, 51); /* Dark gray for readability */
+}
+
+/* PRODUCT CARD HOVER EFFECT */
+/* Makes the project card shrink slightly when hovered */
+.product-card:hover {
+    transform: scale(0.95); /* Slightly reduces size for click-like effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds a stronger shadow on hover */
+}
+
+/* CONTACT PAGE - SECTION CONTAINER */
+/* Styles the entire contact form section */
+section.contact-form {
+    padding: 2rem 1rem; /* Space inside the section (top/bottom, left/right) */
+    display: grid; /* Uses grid to center the form */
+    place-items: center; /* Centers the form both vertically and horizontally */
+}
+
+/* CONTACT FORM WRAPPER */
+/* Card-like container for the form content */
+#contact-form {
+    width: 100%; /* Responsive width */
+    max-width: 720px; /* Restricts maximum width for readability */
+    padding: 1.5rem; /* Inner spacing for content */
+    border-radius: 12px; /*  Smooth rounded corners */
+    background: rgba(255, 255, 255, 0.92); /* Slightly transparent white background */
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    border: 1px solid rgba(0, 0, 0, 0.06); /* Thin light border for definition */
+}
+
+/* CONTACT FORM LABELS */
+/* Labels for each form field */
+#contact-form label {
+    display: block; /* Places label on its own line */
+    margin-top: 0.9rem; /* Space above each label */
+    margin-bottom: 0.35rem; /* Space below each label */
+    font-weight: 600; /* Slightly bold text for clarity */
+    letter-spacing: .2px; /* Minor spacing for readability */
+}
+
+/* CONTACT FORM FIELDS - INPUTS & TEXTAREAS */
+/* Styles for text, email, and message box fields */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 95%; /* Keeps form fields narrower than the container */
+    padding: 0.75rem 0.9rem; /* Inner space for comfortable typing */
+    border: 1.5px solid rgb(200, 200, 200); /* Light gray border */
+    border-radius: 10px; /* Smooth rounded corners */
+    font: inherit; /* Inherits font from parent for consistency */
+    background: rgb(255, 255, 255); /* White background for contrast */
+    outline: none; /* Removes default browser outline */
+    transition: border-color 0.2s, box-shadow 0.2s; /* Smooth animation for focus/hover */
+}
+
+/* TEXTAREA SPECIFIC STYLES */
+/* Adjusts message box height and resizing */
+#contact-form textarea {
+    min-height: 140px; /* Sets taller default size for messages */
+    resize: vertical; /* Allows vertical resizing only */
+}
+
+/* FOCUS EFFECTS FOR INPUTS & TEXTAREAS */
+/* When user clicks or tabs into a field */
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: rgb(187, 51, 51); /* Dark red border for emphasis */
+    box-shadow: 0 0 4px rgba(179, 51, 51, 0.12); /* Soft glow effect */
+}
+
+/* HOVER EFFECTS FOR INPUTS & TEXTAREAS */
+/* Slight change in border color when hovering */
+#contact-form input:hover,
+#contact-form textarea:hover {
+    border-color: rgb(166, 166, 166); /* Subtle gray changes on hover */
+}
+
+/* ERROR MESSAGES */
+/* Styles for validation error text in the form */
+#contact-form .error {
+    color: rgb(176, 0, 32); /* Bright red for visibility */
+    font-size: 0.85rem; /* Slightly smaller text */
+    margin-top: 0.35rem; /* Space above error text */
+    line-height: 1.2; /* Tighter line spacing */
+    min-height: 1.1rem; /* Minimum height for error messages */
+}
+
+/* INVALID FIELD STYLES */
+/* Triggered when Javascript adds the 'isinvalid' class 
+to a field, usually after a failed form validation */
+#contact-form .isvalid {
+    border-color: rgb(176, 0, 32) !important; /* Strong red border to indicate error */
+    box-shadow: 0 0 0 4px rgba(176, 0, 32, 0.12); /* Soft red glow around the field */
+}
+
+/* SUBMIT BUTTON */
+/* Styles for the main form submission button */
+#contact-form .submit-button{
+    margin-top: 1.25rem; /* Space above button */
+    padding: 0.8rem 1.2rem; /* Inner padding for comfort */
+    border: none; /* Removes default border */
+    border-radius: 999px; /* Creates a pill-shaped button */
+    font-weight: 700; /* Bold text for emphasis */
+    cursor: pointer; /* Pointer cursor on hover */
+    background: linear-gradient(180deg, rgb(192, 41, 43), rgb(142, 31, 20)); /* Red gradient background */
+    color: rgb(255, 255, 255); /* White text for contrast */
+    width: 100%; /* Button takes full width of container */
+    transition: transform 0.6s ease, filter .2s ease; /* Smooth animations for hover/active */
+}
+
+/* SUBMIT BUTTON - HOVER STATE */
+/* Slight brightness increase when mouse hovers over */
+#contact-form .submit-button:hover {
+   filter: brightness(1.05); /* Lightens button color slightly */
+}
+
+/* SUBMIT BUTTON - ACTIVE STATE */
+/* Small press animation when clicked */
+#contact-form .submit-button:active {
+    transform: translateY(1px); /* Pushes button down slightly */
+}
+
+/* FOOTER STYLES */
+/* Formatting for the footer at the bottom of the page */
+footer {
+    text-align: center; /* Centers all text in the footer */
+    background: rgb(166, 44, 43); /* Solid red background */
+    color: white; /* White text for high contrast */
+    padding: 40px 15px; /* Spacious padding for breathing room */
+    margin-top: 0; /* Ensures footer aligns directly below content */
+}
+
+/* SOCIAL ICON ROW */
+/* Lays out the social icons side-by-side and centered */
+.footer__social {
+    display: flex; /* Turns the row into a flex container */
+    justify-content: center;/* Center the icons horizontally */
+    align-items: center; /* Vertically aligns icons in a row. */
+    gap: 20px;/* Space between icons */
+    margin-top: 12px; /* Space above the icon row */
+}
+
+/* SOCIAL ICON IMAGES */
+/* Normalizes icon size/shape and adds a subtle shadow */
+.footer__social a img {
+    height: 28px; /* Consistent icon height */
+    width: 28px; /* Constistent icon width */
+    border-radius: 50%; /* Makes icons round if images are square */
+    object-fit: cover; /* Crops if the image isn't perfectly square */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Soft depth to lift focus */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover animation */
+}
+
+/* SOCIAL ICON HOVER EFFECT */
+/* Slight zoom + stronger shadow for a tactile feel */
+.footer__social a img:hover {
+    transform: scale(1.15); /* Gently grows on hover */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18); /* Deeper shadow while hovered */
+    opacity: 0.85; /* Tiny fade for feedback */
+}
+
+/* PATTERN BAR */
+/* Decorative horizontal bar with repeating pattern texture */
+.pattern-bar {
+    background: url("/Images/textile-overlay.jpg") repeat;
+    height: 40px;
+    opacity: 0.3;
+    background-size: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* ANIMATIONS */
+/* fadeInUp - Makes elements slide in from below while fading in */
+@keyframes fadeInUp {
+    0% { 
+        opacity: 0; /* Element is invisible at start */
+        transform: translateY(30px); /* Starts 30px below its final position */
+    } 
+    100% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Moves into original position */
+    }
+}
+
+/* Base (applies to all) */
+
+#product-list { /* Main container for product cards */
+    display: grid; /* Use grid layout for product cards */
+    align-items: start; /* Aligns items to the start of each grid cell */
+}
+
+.product-card img {
+    width: 100%; /* Makes product images responsive */
+    object-fit: cover; /* Crops tall wide images nicely */
+    display: block; /* Removes inline spacing issues */
+    border-radius: 6px; /* Rounded corners for product images */
+}
+
+/* RESPNOSIVE LAYOUT - MOBILE, TABLET, DESKTOP */
+
+/* MOBILE MEDIA QUERY  (<800px) */ 
+/* Goal: single column layout, compact spacing, consistent image height */
+@media (max-width: 799px) { /* Adjustments for smaller screens */
+    .hero { height: 60vh; } /* Shortens hero section height on small screens */
+
+    .featured-grid { grid-template-columns: 1fr; gap: 16px; } /* Single column layout for featured products */
+    
+    #product-list { 
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Smaller cards on mobile */
+        gap: 16px; /* Reduced gap between cards */
+    }
+    .product-card img { height: 220px; } /* Fixed height for product images on mobile */
+
+    nav a { display: inline-block; margin: 6px 10px; } /* Stacks navigation links vertically with space */
+    section.contact-form { padding: 2rem 1rem; } /* Reduces padding in contact form section */
+}
+
+/* TABLET MEDIA QUERY ( >=800px ) */ 
+/* Goal: 3 columns for featured, bigger product images, roomier padding */
+@media (min-width: 800px) and (max-width: 1199px) { /* Adjustments for medium screens */
+    .hero { height: 80vh; } /* Taller hero section on tablets */
+
+    .featured-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; } /* Featured section shows 3 cards per row */
+    
+    /* Product grid: responsive columns */
+    #product-list { 
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+        gap: 24px; 
+    }
+    
+    /* Product images: taller for better visibility on tablets */
+    .product-card img { height: 220px; } /* Taller images for better visibility on tablets */
+
+    /* Contact section gets a bit more brathing room */
+    section.contact-form { padding: 3rem 1rem; }
+}
+
+/* DESKTOP MEDIA QUERY */
+/* Goal: denser grid, larger images, taller hero */
+@media (min-width: 1200px) and (max-width: 1500px) {
+    .hero { height: 85vh; } 
+
+    /* Featured: up to 4 cards per row with wider gaps */
+    .featured-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    /* Product grid: larger minimum card size */
+    #product-list  {
+        grid-template-columns: repeat(auto-fill, minmax(260px, .4fr));
+        gap: 24px;
+    }
+
+    /* Products images scale up to match the larger cards */
+    .product-card img { height: 220px; }
+}
+
+.slider {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.6s ease;
+}
+
