@@ -104,7 +104,7 @@ nav a {
 /* PATTERN DIVIDER BELOW HERO */
 /* Creates a decorative textile strip separating sections */
 .pattern.divider {
-    background: url("/Images/textile-overlay.jpg") repeat; 
+    background: url("Images/textile-overlay.jpg") repeat; 
     height: 30px; /* Height of the divider */
     opacity: 0.35; /* Makes the pattern semi-transparent */
     background-size: 80px; /* Scales the pattern image */

@@ -1,10 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'; 
+import './style.css';
 import NavBar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import Products from './pages/Products.jsx';
 import Contact from './pages/Contact.jsx';
+
+
 
 export default function App() {
   return (

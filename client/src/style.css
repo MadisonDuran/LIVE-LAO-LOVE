@@ -105,8 +105,8 @@ nav a {
 /* PATTERN DIVIDER BELOW HERO */
 /* Creates a decorative textile strip separating sections */
 .pattern.divider {
-    background: url("/Images/textile-overlay.jpg") repeat; 
-    height: 30px; /* Height of the divider */
+    /* background: url("/Images/textile-overlay.jpg") repeat; */
+    height: 30px;
     opacity: 0.35; /* Makes the pattern semi-transparent */
     background-size: 80px; /* Scales the pattern image */
     border-top: 1px solid rgba(255, 255, 255, 0.15); /* Light border above the divider */
@@ -422,7 +422,7 @@ footer {
 /* PATTERN BAR */
 /* Decorative horizontal bar with repeating pattern texture */
 .pattern-bar {
-    background: url("/Images/textile-overlay.jpg") repeat;
+    /*background: url("/Images/textile-overlay.jpg") repeat;*/
     height: 40px;
     opacity: 0.3;
     background-size: 80px;
@@ -519,6 +519,57 @@ footer {
   background-size: cover;
   background-position: center;
   transition: background-image 0.6s ease;
+}
+
+.product-list {
+  margin-top: 24px;
+}
+
+.product-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  border: 1px solid #eee;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.product-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #f6f6f6;
+}
+
+.product-info {
+  padding: 16px;
+}
+
+.product-info h3 {
+  margin: 0 0 8px 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.product-info p {
+  color: #555;
+  margin: 0 0 12px 0;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777;
 }
 
 

@@ -1,30 +1,104 @@
 import { useState } from 'react';
 
 export default function Contact() {
-  const [vals, setVals] = useState({ name: '', email: '', comment: '' });
+  const [vals, setVals] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+    country: ''
+  });
   const [errs, setErrs] = useState({});
 
   const validate = () => {
     const e = {};
-    if (!vals.name.trim()) e.name = 'Name required';
+    if (!vals.firstName.trim()) e.firstName = 'First name required';
+    if (!vals.lastName.trim()) e.lastName = 'Last name required';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vals.email)) e.email = 'Valid email required';
-    if (vals.comment.trim().length < 10) e.comment = 'Please add more detail (10+ chars)';
+    if (!vals.message.trim() || vals.message.trim().length < 10) e.message = 'Please enter a message (10+ chars)';
+    if (!vals.country.trim()) e.country = 'Country required';
     setErrs(e);
     return Object.keys(e).length === 0;
   };
 
   const submit = (ev) => {
     ev.preventDefault();
-    if (validate()) alert('Thanks! We will reach out soon.');
+    if (validate()) {
+      alert("Thanks! We will reach out soon.");
+      setVals({
+        firstName: '',
+        lastName: '',
+        email: '',
+        message: '',
+        country: ''
+      });
+      setErrs({});
+    }
   };
 
   return (
-    <form className="contact" onSubmit={submit} noValidate>
-      <h2>Contact</h2>
-      <label>Name<input value={vals.name} onChange={e=>setVals({...vals, name:e.target.value})}/>{errs.name && <span className="err">{errs.name}</span>}</label>
-      <label>Email<input value={vals.email} onChange={e=>setVals({...vals, email:e.target.value})}/>{errs.email && <span className="err">{errs.email}</span>}</label>
-      <label>Comment<textarea rows="4" value={vals.comment} onChange={e=>setVals({...vals, comment:e.target.value})}/>{errs.comment && <span className="err">{errs.comment}</span>}</label>
-      <button type="submit">Send</button>
-    </form>
+    <div>
+      <div className="pattern-divider"></div>
+      <section className="contact-form">
+        <h2>We'd Love to Hear From You!</h2>
+        <form id="contact-form" className="contact-form" onSubmit={submit} noValidate>
+          <label className="contact-form__label">
+            First Name:
+            <input
+              className="contact-form__input"
+              type="text"
+              name="firstName"
+              value={vals.firstName}
+              onChange={e => setVals({ ...vals, firstName: e.target.value })}
+            />
+            {errs.firstName && <span className="contact-form__error">{errs.firstName}</span>}
+          </label>
+          <label className="contact-form__label">
+            Last Name:
+            <input
+              className="contact-form__input"
+              type="text"
+              name="lastName"
+              value={vals.lastName}
+              onChange={e => setVals({ ...vals, lastName: e.target.value })}
+            />
+            {errs.lastName && <span className="contact-form__error">{errs.lastName}</span>}
+          </label>
+          <label className="contact-form__label">
+            Email:
+            <input
+              className="contact-form__input"
+              type="email"
+              name="email"
+              value={vals.email}
+              onChange={e => setVals({ ...vals, email: e.target.value })}
+            />
+            {errs.email && <span className="contact-form__error">{errs.email}</span>}
+          </label>
+          <label className="contact-form__label">
+            Message:
+            <textarea
+              className="contact-form__input"
+              name="message"
+              value={vals.message}
+              onChange={e => setVals({ ...vals, message: e.target.value })}
+            />
+            {errs.message && <span className="contact-form__error">{errs.message}</span>}
+          </label>
+          <label className="contact-form__label">
+            Country:
+            <input
+              className="contact-form__input"
+              type="text"
+              name="country"
+              value={vals.country}
+              onChange={e => setVals({ ...vals, country: e.target.value })}
+            />
+            {errs.country && <span className="contact-form__error">{errs.country}</span>}
+          </label>
+          <button type="submit" className="submit-button">Send Message</button>
+        </form>
+      </section>
+    </div>
   );
 }

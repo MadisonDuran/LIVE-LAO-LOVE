@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const slides = [
   '/Images/lao-coffee.jpg',
@@ -7,12 +7,13 @@ const slides = [
 ];
 
 export default function Home() {
-  const [, setI] = useState(0);
-  const timer = useRef();
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    timer.current = setInterval(() => setI((n) => (n + 1) % slides.length), 4000);
-    return () => clearInterval(timer.current);
+    const timer = setInterval(() => {
+      setIndex(i => (i + 1) % slides.length);
+    }, 3500);
+    return () => clearInterval(timer);
   }, []);
 
   return (
@@ -38,6 +39,41 @@ export default function Home() {
       </section>
       <section className="featured">
         <h2>Featured Products</h2>
+        {/* SLIDER */}
+        <div className="slider" style={{
+          width: '100%',
+          height: '300px',
+          background: `url(${slides[index]}) center/cover no-repeat`,
+          marginBottom: 32,
+          position: 'relative'
+        }}>
+          <div style={{
+            position: 'absolute',
+            bottom: 16,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            gap: 8
+          }}>
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                style={{
+                  width: 12,
+                  height: 12,
+                  borderRadius: '50%',
+                  border: 'none',
+                  background: i === index ? '#FFD700' : '#fff',
+                  opacity: i === index ? 1 : 0.5,
+                  cursor: 'pointer'
+                }}
+                onClick={() => setIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+        {/* PRODUCT CARDS */}
         <div className="featured-grid">
           <div className="card">
             <img src="/Images/lao-coffee.jpg" alt="Lao Coffee" />
