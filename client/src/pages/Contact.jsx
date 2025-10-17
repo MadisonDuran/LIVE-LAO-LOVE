@@ -17,13 +17,14 @@ export default function Contact() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vals.email)) e.email = 'Valid email required';
     if (!vals.message.trim() || vals.message.trim().length < 10) e.message = 'Please enter a message (10+ chars)';
     if (!vals.country.trim()) e.country = 'Country required';
-    setErrs(e);
-    return Object.keys(e).length === 0;
+    return e;
   };
 
   const submit = (ev) => {
     ev.preventDefault();
-    if (validate()) {
+    const errors = validate();
+    setErrs(errors);
+    if (Object.keys(errors).length === 0) {
       alert("Thanks! We will reach out soon.");
       setVals({
         firstName: '',

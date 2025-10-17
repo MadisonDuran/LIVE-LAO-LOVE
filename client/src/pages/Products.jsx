@@ -17,7 +17,6 @@ export default function Products() {
   const [max, setMax] = useState('');
   const [q, setQ] = useState('');
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState('');
 
   const url = useMemo(() => {
     const p = new URLSearchParams();
@@ -32,7 +31,6 @@ export default function Products() {
     let cancelled = false;
     (async () => {
       setLoading(true);
-      setErr('');
       try {
         const res = await fetch(url, { credentials: 'omit', headers: { Accept: 'application/json' } });
         const text = await res.text();
@@ -40,7 +38,6 @@ export default function Products() {
         const data = JSON.parse(text);
         if (!cancelled) setItems(Array.isArray(data) ? data : []);
       } catch (e) {
-        if (!cancelled) setErr(e.message || 'Failed to load products');
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -95,6 +92,7 @@ export default function Products() {
       </form>
 
       {/* PRODUCT GRID */}
+      {loading && <p style={{color:'goldenrod'}}>Loading products...</p>}
       <div id="product-list" className="product-list">
         <div className="product-grid">
           {items.map(p => (
