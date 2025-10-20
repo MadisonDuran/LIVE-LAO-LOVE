@@ -25,7 +25,7 @@ export default function Contact() {
     const errors = validate();
     setErrs(errors);
     if (Object.keys(errors).length === 0) {
-      alert("Thanks! We will reach out soon.");
+      alert('Thanks! We will reach out soon.');
       setVals({
         firstName: '',
         lastName: '',
@@ -39,9 +39,24 @@ export default function Contact() {
 
   return (
     <div>
-      <div className="pattern-divider"></div>
+      <header>
+        <h1>Contact Live Lao Love</h1>
+        <nav>
+          {/* Navigation links to the other pages */}
+          <a href="/">Home</a>
+          <a href="/products">Products</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      {/* PATTERN DIVIDER */}
+      <div className="pattern-divider" />
+
+      {/* CONTACT SECTION */}
       <section className="contact-form">
         <h2>We'd Love to Hear From You!</h2>
+
+        {/* FORM SECTION */}
         <form id="contact-form" className="contact-form" onSubmit={submit} noValidate>
           <label className="contact-form__label">
             First Name:
@@ -50,10 +65,11 @@ export default function Contact() {
               type="text"
               name="firstName"
               value={vals.firstName}
-              onChange={e => setVals({ ...vals, firstName: e.target.value })}
+              onChange={(e) => setVals({ ...vals, firstName: e.target.value })}
             />
             {errs.firstName && <span className="contact-form__error">{errs.firstName}</span>}
           </label>
+
           <label className="contact-form__label">
             Last Name:
             <input
@@ -61,10 +77,11 @@ export default function Contact() {
               type="text"
               name="lastName"
               value={vals.lastName}
-              onChange={e => setVals({ ...vals, lastName: e.target.value })}
+              onChange={(e) => setVals({ ...vals, lastName: e.target.value })}
             />
             {errs.lastName && <span className="contact-form__error">{errs.lastName}</span>}
           </label>
+
           <label className="contact-form__label">
             Email:
             <input
@@ -72,20 +89,22 @@ export default function Contact() {
               type="email"
               name="email"
               value={vals.email}
-              onChange={e => setVals({ ...vals, email: e.target.value })}
+              onChange={(e) => setVals({ ...vals, email: e.target.value })}
             />
             {errs.email && <span className="contact-form__error">{errs.email}</span>}
           </label>
+
           <label className="contact-form__label">
             Message:
             <textarea
               className="contact-form__input"
               name="message"
               value={vals.message}
-              onChange={e => setVals({ ...vals, message: e.target.value })}
+              onChange={(e) => setVals({ ...vals, message: e.target.value })}
             />
             {errs.message && <span className="contact-form__error">{errs.message}</span>}
           </label>
+
           <label className="contact-form__label">
             Country:
             <input
@@ -93,10 +112,11 @@ export default function Contact() {
               type="text"
               name="country"
               value={vals.country}
-              onChange={e => setVals({ ...vals, country: e.target.value })}
+              onChange={(e) => setVals({ ...vals, country: e.target.value })}
             />
             {errs.country && <span className="contact-form__error">{errs.country}</span>}
           </label>
+
           <button type="submit" className="submit-button">Send Message</button>
         </form>
       </section>

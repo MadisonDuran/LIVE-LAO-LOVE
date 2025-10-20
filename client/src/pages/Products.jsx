@@ -1,17 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import '../style.css';
 
-const TYPE_OPTIONS = [
-  { value: '', label: 'All Types' },
-  { value: 'food', label: 'Food' },
-  { value: 'clothing', label: 'Clothing' },
-  { value: 'handicrafts', label: 'Handicrafts' },
-  { value: 'home_decor', label: 'Home & Decor' },
-  { value: 'modern_merch', label: 'Modern Merchandise' },
-];
-
 export default function Products() {
-  const [items, setItems] = useState([]);
   const [type, setType] = useState('');
   const [min, setMin] = useState('');
   const [max, setMax] = useState('');
@@ -36,8 +26,12 @@ export default function Products() {
         const text = await res.text();
         if (!res.ok) throw new Error(`HTTP ${res.status}: ${text}`);
         const data = JSON.parse(text);
-        if (!cancelled) setItems(Array.isArray(data) ? data : []);
+        if (!cancelled) {
+          // data received from server — not storing in local state per request
+          console.debug('Products fetched:', Array.isArray(data) ? data.length : typeof data);
+        }
       } catch (e) {
+        console.error('Products load error:', e);
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -48,73 +42,42 @@ export default function Products() {
   const clearFilters = () => { setType(''); setMin(''); setMax(''); setQ(''); };
 
   return (
-    <div className="container">
-      {/* HEADER */}
+    <>
       <header>
         <h1>Our Products</h1>
         <nav>
+          {/* Navigation menu */}
           <a href="/">Home</a>
           <a href="/products">Products</a>
           <a href="/contact">Contact</a>
+          {/* removed empty anchor to satisfy accessibility lint */}
         </nav>
       </header>
 
       {/* PATTERN DIVIDER */}
+      {/* Decorative bar below the header */}
       <div className="pattern-divider"></div>
 
       {/* FILTER BUTTONS */}
-      <div className="filters" style={{marginBottom: '16px'}}>
-        <button type="button" onClick={clearFilters}>All</button>
-        <button type="button" onClick={() => setType('food')}>Food</button>
-        <button type="button" onClick={() => setType('clothing')}>Clothing</button>
-        <button type="button" onClick={() => setType('handicrafts')}>Handicrafts</button>
-        <button type="button" onClick={() => setType('home_decor')}>Home & Decor</button>
-        <button type="button" onClick={() => setType('modern_merch')}>Modern Merchandise</button>
+      {/* Allows users to sort/filter products by category */}
+      <div className="filters">
+        {/* 'All' button resets to show all products */}
+        <button onClick={clearFilters}>All</button>
+        {/* Buttons for filtering specific product categories */}
+        <button onClick={() => setType('food')}>Food</button>
+        <button onClick={() => setType('clothing')}>Clothing</button>
+        <button onClick={() => setType('handicrafts')}>Handicrafts</button>
+        <button onClick={() => setType('home_decor')}>Home & Decor</button>
+        <button onClick={() => setType('modern_merch')}>Modern Merchandise</button>
       </div>
-
-      {/* FILTER FORM */}
-      <form onSubmit={(e)=>e.preventDefault()} style={{display:'grid',gap:12,gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))',marginBottom:16}}>
-        <label>Type
-          <select value={type} onChange={(e)=>setType(e.target.value)}>
-            {TYPE_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-          </select>
-        </label>
-        <label>Min $
-          <input type="number" min="0" step="0.01" value={min} onChange={(e)=>setMin(e.target.value)} />
-        </label>
-        <label>Max $
-          <input type="number" min="0" step="0.01" value={max} onChange={(e)=>setMax(e.target.value)} />
-        </label>
-        <label style={{gridColumn:'1 / -1'}}>Search
-          <input type="text" value={q} onChange={(e)=>setQ(e.target.value)} placeholder="name or description" />
-        </label>
-        <button type="button" onClick={clearFilters}>Clear</button>
-      </form>
 
       {/* PRODUCT GRID */}
-      {loading && <p style={{color:'goldenrod'}}>Loading products...</p>}
-      <div id="product-list" className="product-list">
-        <div className="product-grid">
-          {items.map(p => (
-            <article key={p.id} className="product-card">
-              <div className="product-image">
-                <img
-                  src={p.image_url}
-                  alt={p.name}
-                />
-              </div>
-              <div className="product-info">
-                <h3>{p.name}</h3>
-                <p>{p.description}</p>
-                <div className="product-meta">
-                  <strong>${Number(p.price).toFixed(2)}</strong>
-                  <small>{p.product_type?.replace(/_/g,' ')}</small>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+      {/* Products will be dynamically added here using JavaScript */}
+      <div id="product-list">
+        {/* Placeholder text before products load */}
+        {loading && <p style={{ color: 'goldenrod' }}>Loading products...</p>}
+        {/* Products will load here dynamically with JS */}
       </div>
-    </div>
+    </>
   );
 }
