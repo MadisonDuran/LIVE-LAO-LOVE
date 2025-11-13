@@ -1,69 +1,58 @@
-import { useEffect, useMemo, useState } from 'react';
-import '../style.css';
+import { useEffect, useState } from 'react';
+
+const API_BASE = 'http://localhost:5000'; // 👈 point directly at your API
 
 export default function Products() {
+  const [items, setItems] = useState([]);
+  const [status, setStatus] = useState('idle'); // 'loading' | 'error' | 'success'
   const [type, setType] = useState('');
-  const [min, setMin] = useState('');
-  const [max, setMax] = useState('');
-  const [q, setQ] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const url = useMemo(() => {
-    const p = new URLSearchParams();
-    if (type) p.set('type', type);
-    if (min)  p.set('min', min);
-    if (max)  p.set('max', max);
-    if (q)    p.set('q', q);
-    return p.toString() ? `/api/products?${p.toString()}` : '/api/products';
-  }, [type, min, max, q]);
+  const clearFilters = () => {
+    setType('');
+  };
 
   useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      setLoading(true);
+    const fetchProducts = async () => {
       try {
-        const res = await fetch(url, { credentials: 'omit', headers: { Accept: 'application/json' } });
-        const text = await res.text();
-        if (!res.ok) throw new Error(`HTTP ${res.status}: ${text}`);
-        const data = JSON.parse(text);
-        if (!cancelled) {
-          // data received from server — not storing in local state per request
-          console.debug('Products fetched:', Array.isArray(data) ? data.length : typeof data);
-        }
-      } catch (e) {
-        console.error('Products load error:', e);
+        setStatus('loading');
+        setLoading(true);
+        const res = await fetch('/products');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        setItems(data);
+        setStatus('success');
+      } catch (err) {
+        console.error('Fetch products failed:', err);
+        setStatus('error');
       } finally {
-        if (!cancelled) setLoading(false);
+        setLoading(false);
       }
-    })();
-    return () => { cancelled = true; };
-  }, [url]);
+    };
+    fetchProducts();
+  }, []);
 
-  const clearFilters = () => { setType(''); setMin(''); setMax(''); setQ(''); };
+  // Filter items based on selected type
+  const filteredItems = type ? items.filter(item => item.product_type === type) : items;
+
+  if (status === 'loading') return <p>Loading products…</p>;
+  if (status === 'error') return <p>Couldn't load products. Check API.</p>;
 
   return (
     <>
       <header>
         <h1>Our Products</h1>
         <nav>
-          {/* Navigation menu */}
           <a href="/">Home</a>
           <a href="/products">Products</a>
           <a href="/contact">Contact</a>
-          {/* removed empty anchor to satisfy accessibility lint */}
         </nav>
       </header>
 
-      {/* PATTERN DIVIDER */}
-      {/* Decorative bar below the header */}
       <div className="pattern-divider"></div>
 
-      {/* FILTER BUTTONS */}
-      {/* Allows users to sort/filter products by category */}
       <div className="filters">
-        {/* 'All' button resets to show all products */}
         <button onClick={clearFilters}>All</button>
-        {/* Buttons for filtering specific product categories */}
         <button onClick={() => setType('food')}>Food</button>
         <button onClick={() => setType('clothing')}>Clothing</button>
         <button onClick={() => setType('handicrafts')}>Handicrafts</button>
@@ -71,12 +60,16 @@ export default function Products() {
         <button onClick={() => setType('modern_merch')}>Modern Merchandise</button>
       </div>
 
-      {/* PRODUCT GRID */}
-      {/* Products will be dynamically added here using JavaScript */}
       <div id="product-list">
-        {/* Placeholder text before products load */}
         {loading && <p style={{ color: 'goldenrod' }}>Loading products...</p>}
-        {/* Products will load here dynamically with JS */}
+        {filteredItems.map(item => (
+          <div key={item.id} className="product-card">
+            <img src={item.imageUrl} alt={item.name} />
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
+            <strong>${item.price}</strong>
+          </div>
+        ))}
       </div>
     </>
   );

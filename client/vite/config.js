@@ -1,4 +1,13 @@
-export default {
-  base: '/',
-  server: { proxy: { '/api': 'http://127.0.0.1:4000' } }
-};
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: {
+      // proxy API to your backend on :4000
+      '/products': 'http://localhost:4000',
+      '/api': 'http://localhost:4000'
+    }
+  }
+});
